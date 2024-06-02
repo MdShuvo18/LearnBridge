@@ -21,7 +21,7 @@ const Navbar = () => {
     }
     return (
         <div>
-            <div className="navbar bg-base-100">
+            <div className="navbar fixed z-10 opacity-40 bg-black">
                 <div className="navbar-start">
                     <div className="dropdown">
                         <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -32,10 +32,10 @@ const Navbar = () => {
                         </ul>
                     </div>
                     <img className="w-10 h-10 rounded-full" src="https://i.ibb.co/9rJTxPg/simple-success-education-logo-png-32069.jpg" alt="" />
-                    <a className="btn btn-ghost text-xl">LearnBridge</a>
+                    <a className="btn btn-ghost text-xl text-white font-semibold">LearnBridge</a>
                 </div>
                 <div className="navbar-center hidden lg:flex">
-                    <ul className="menu menu-horizontal px-1">
+                    <ul className="menu menu-horizontal px-1 text-white font-semibold">
                         {links}
                     </ul>
                 </div>
@@ -63,8 +63,8 @@ const Navbar = () => {
                                         <span className="absolute inset-0 flex items-center justify-center w-full h-full text-white duration-300 -translate-x-full bg-purple-500 group-hover:translate-x-0 ease">
                                             <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
                                         </span>
-                                        <span className="absolute flex items-center justify-center w-full h-full text-purple-500 transition-all duration-300 transform group-hover:translate-x-full ease">Login</span>
-                                        <span className="relative invisible">Login</span>
+                                        <span className="absolute flex items-center justify-center w-full h-full text-white transition-all duration-300 transform group-hover:translate-x-full ease">Sign In</span>
+                                        <span className="relative invisible">Sign In</span>
                                     </a>
                                 </Link>
                         }
