@@ -21,7 +21,7 @@ const Navbar = () => {
     }
     return (
         <div>
-            <div className="navbar fixed z-10 opacity-40 bg-black">
+            <div className="navbar fixed z-10 opacity-70 bg-black">
                 <div className="navbar-start">
                     <div className="dropdown">
                         <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -43,14 +43,14 @@ const Navbar = () => {
                     <div className="dropdown dropdown-end">
                         {user && <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
                             <div className="w-10 rounded-full">
-                                <img alt="" src={user?.photoURL} />
+                                <img className="bg-white" alt="" src={user?.photoURL} />
                             </div>
                         </div>
                         }
                         {
                             user
-                                ? <ul tabIndex={0} className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52">
-                                    <li>
+                                ? <ul tabIndex={0} className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-white  rounded-box w-52">
+                                    <li className="text-black">
                                         <a className="justify-between">
                                             {user?.displayName}
                                         </a>

@@ -2,7 +2,7 @@ import { GithubAuthProvider, GoogleAuthProvider, getAuth, signInWithPopup } from
 import { useContext, useState } from "react";
 import { IoEye } from "react-icons/io5";
 import { IoLogoFacebook, IoLogoGithub, IoMdEyeOff } from "react-icons/io";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import app from "../../Firebase/firebase.config";
 import { AuthContext } from "../../Provider/AuthProvider";
 
@@ -15,6 +15,8 @@ const Register = () => {
     const [register, setRegister] = useState('');
     const [success, setSuccess] = useState('');
     const [showPasswords, setShowPasswords] = useState(false);
+    const location = useLocation()
+    const navigate = useNavigate()
 
 
     const handleGoogleSignIn = () => {
@@ -22,6 +24,7 @@ const Register = () => {
         signInWithPopup(auth, googleprovider)
             .then(result => {
                 const user = result.user;
+                navigate(location?.state ? location.state : '/')
                 console.log(user);
             })
             .catch(error => {
@@ -133,7 +136,7 @@ const Register = () => {
 
                             </div>
                             <div className="form-control mt-6">
-                            <input type="submit" value='sign up' className="btn btn-primary" />
+                                <input type="submit" value='sign up' className="btn btn-primary" />
                             </div>
                         </form>
 
