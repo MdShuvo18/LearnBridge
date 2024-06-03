@@ -5,18 +5,21 @@ import { IoLogoGithub, IoMdEyeOff } from "react-icons/io";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import app from "../../Firebase/firebase.config";
 import { AuthContext } from "../../Provider/AuthProvider";
+import Swal from "sweetalert2";
+import useAxiosPublic from "../../Hooks/useAxiosPublic";
 
 const Register = () => {
 
     const auth = getAuth(app)
     const googleprovider = new GoogleAuthProvider()
     const gitHubProvider = new GithubAuthProvider()
-    const { createUser } = useContext(AuthContext);
+    const { createUser, updateUserProfile } = useContext(AuthContext);
     const [register, setRegister] = useState('');
     const [success, setSuccess] = useState('');
     const [showPasswords, setShowPasswords] = useState(false);
     const location = useLocation()
     const navigate = useNavigate()
+    const axiosPublic = useAxiosPublic()
 
 
     const handleGoogleSignIn = () => {
@@ -67,22 +70,35 @@ const Register = () => {
             setSuccess(<p className="text-red-700">Password must be at least one lowerCase characters</p>);
             return;
         }
-
-        // console.log(name, email, password, photo)
         createUser(email, password)
             .then(result => {
-                console.log(result.user);
-                setSuccess('Registered Successfully');
+                const loggedUser = result.user;
+                console.log(loggedUser);
+                updateUserProfile(name, photo)
+                    .then(() => {
+                        // create user entry in the database
+                        const userInfo = { name: name, email: email };
+                        axiosPublic.post('/user', userInfo)
+                            .then(res => {
+                                if (res.data.insertedId) {
+                                    console.log('user added to the database')
+                                    Swal.fire({
+                                        position: 'top-end',
+                                        icon: 'success',
+                                        title: 'User created successfully.',
+                                        showConfirmButton: false,
+                                        timer: 1500
+                                    });
+                                    navigate('/');
+                                }
+                            })
 
-            })
-            .catch(error => {
-                console.log(error.message);
-                setRegister(error.message)
-            })
-        navigate('/')
 
+                    })
+                    .catch(error => console.log(error))
+            })
+        // console.log(name, email, password, photo)
     }
-
 
     return (
         <div>
