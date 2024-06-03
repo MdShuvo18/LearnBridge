@@ -1,5 +1,6 @@
 import Banner from "./Banner";
 import Footer from "./Footer";
+import HighlightSection from "./HighlightSection/HighlightSection";
 import Navbar from "./Navbar";
 import Partners from "./Partner/Partners";
 
@@ -12,7 +13,7 @@ const Home = () => {
             <div className="space-y-20">
                 <Banner></Banner>
                 <Partners></Partners>
-                This is home
+                <HighlightSection></HighlightSection>
                 <Footer></Footer>
             </div>
         </div>
