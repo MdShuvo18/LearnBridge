@@ -1,7 +1,7 @@
 import { GithubAuthProvider, GoogleAuthProvider, getAuth, signInWithPopup } from "firebase/auth";
 import { useContext, useState } from "react";
-import { IoEye } from "react-icons/io5";
-import { IoLogoFacebook, IoLogoGithub, IoMdEyeOff } from "react-icons/io";
+import { IoEye, IoLogoGoogle } from "react-icons/io5";
+import { IoLogoGithub, IoMdEyeOff } from "react-icons/io";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import app from "../../Firebase/firebase.config";
 import { AuthContext } from "../../Provider/AuthProvider";
@@ -79,7 +79,7 @@ const Register = () => {
                 console.log(error.message);
                 setRegister(error.message)
             })
-
+        navigate('/')
 
     }
 
@@ -141,7 +141,7 @@ const Register = () => {
                         </form>
 
                         <button onClick={handleGoogleSignIn} className="btn btn-outline w-full mb-2">
-                            <IoLogoFacebook></IoLogoFacebook>
+                            <IoLogoGoogle></IoLogoGoogle>
                             <span className="ml-2">Sign Up With Google</span>
                         </button>
                         <button onClick={handleGithubSignIn} className="btn btn-outline w-full">

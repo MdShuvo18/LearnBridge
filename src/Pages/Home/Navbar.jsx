@@ -7,8 +7,8 @@ const Navbar = () => {
     const { user, logOut } = useContext(AuthContext)
     console.log(user)
     const links = <>
-        <li><a>Home</a></li>
-        <li><a>All Classes</a></li>
+        <li><a><Link to='/'>Home</Link></a></li>
+        <li><a><Link to='/allclasses'>All Classes</Link></a></li>
         <li><a>Teaches On LearnBridge</a></li>
     </>
 

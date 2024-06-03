@@ -14,6 +14,7 @@ const Login = () => {
     const location = useLocation()
     // console.log(location)
     const navigate = useNavigate()
+    const from = location.state?.from?.pathname || "/";
 
 
     const handleLogin = (e) => {
@@ -25,6 +26,7 @@ const Login = () => {
         console.log(email, password);
         setLogUser('');
         setSuccess('');
+        
 
         if (password.length < 6) {
             setSuccess(<p className="text-red-700">Password must be at least 6 characters or longer</p>);
@@ -41,7 +43,7 @@ const Login = () => {
             .then(result => {
                 console.log(result.user)
 
-                navigate(location?.state ? location.state : '/')
+                navigate(from, { replace: true });
                 setSuccess('Login Successful')
             })
             .catch(error => {
