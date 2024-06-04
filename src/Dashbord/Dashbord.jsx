@@ -2,9 +2,11 @@ import { CgProfile } from "react-icons/cg";
 import { FaHome, FaRegQuestionCircle, FaUser } from "react-icons/fa";
 import { SiGoogleclassroom } from "react-icons/si";
 import { NavLink, Outlet } from "react-router-dom";
+import useAdmin from "../Hooks/useAdmin";
 
 
 const Dashbord = () => {
+    const [isAdmin] = useAdmin()
     return (
         <div className="flex">
             <div className="dropdown">
@@ -37,26 +39,34 @@ const Dashbord = () => {
             <div className="navbar-center hidden lg:flex">
                 <div className="w-64 min-h-screen bg-sky-200">
                     <ul className="menu menu-horizontal px-1 text-white font-semibold">
-                        <li>
-                            <NavLink to="/">
-                                <FaHome></FaHome>
-                                Home</NavLink>
-                            <NavLink to="/dashbord/teacherrequest">
-                                <FaRegQuestionCircle></FaRegQuestionCircle>
-                                Teacher Request</NavLink>
-                            <NavLink to="/dashbord/users">
-                                <FaUser></FaUser>
-                                Users</NavLink>
-                            <NavLink to="/">
-                                <SiGoogleclassroom />
-                                All classes</NavLink>
-                            {/* <NavLink to="/dashbord/myenrollclass">
+                        {
+                            isAdmin ? <>
+                                <li>
+                                    <NavLink to="/">
+                                        <FaHome></FaHome>
+                                        Home</NavLink>
+                                    <NavLink to="/dashbord/teacherrequest">
+                                        <FaRegQuestionCircle></FaRegQuestionCircle>
+                                        Teacher Request</NavLink>
+                                    <NavLink to="/dashbord/users">
+                                        <FaUser></FaUser>
+                                        Users</NavLink>
+                                    <NavLink to="/">
+                                        <SiGoogleclassroom />
+                                        All classes</NavLink>
+                                    {/* <NavLink to="/dashbord/myenrollclass">
                             <SiGoogleclassroom />
                             My enroll class</NavLink> */}
-                            <NavLink to="/dashbord/myprofile">
-                                <CgProfile />
-                                Profile</NavLink>
-                        </li>
+                                    <NavLink to="/dashbord/myprofile">
+                                        <CgProfile />
+                                        Profile</NavLink>
+                                </li>
+                            </> : <>
+                                <NavLink to="/">
+                                    <FaHome></FaHome>
+                                    Home</NavLink>
+                            </>
+                        }
                     </ul>
                 </div>
             </div>
