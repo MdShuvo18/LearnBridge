@@ -77,13 +77,13 @@ const Register = () => {
                 updateUserProfile(name, photo)
                     .then(() => {
                         // create user entry in the database
-                        const userInfo = { name: name, email: email };
+                        const userInfo = { name: name, email: email, photo: photo };
                         axiosPublic.post('/user', userInfo)
                             .then(res => {
                                 if (res.data.insertedId) {
                                     console.log('user added to the database')
                                     Swal.fire({
-                                        position: 'top-end',
+                                        position: 'center',
                                         icon: 'success',
                                         title: 'User created successfully.',
                                         showConfirmButton: false,

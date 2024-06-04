@@ -8,6 +8,7 @@ import PrivateRoutes from "./PrivateRoutes";
 import Dashbord from "../Dashbord/Dashbord";
 import MyEnrollClass from "../Dashbord/Student/MyEnrollClass";
 import StudentProfile from "../Dashbord/Student/StudentProfile";
+import Users from "../Dashbord/Users";
 
 
 const router = createBrowserRouter([
@@ -38,6 +39,10 @@ const router = createBrowserRouter([
         path:'/dashbord',
         element:<Dashbord></Dashbord>,
         children:[
+            {
+                path:'/dashbord/users',
+                element:<Users></Users>
+            },
 
             // student related routes
             {
