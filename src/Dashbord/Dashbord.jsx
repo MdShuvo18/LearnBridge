@@ -53,7 +53,7 @@ const Dashbord = () => {
                             {/* <NavLink to="/dashbord/myenrollclass">
                             <SiGoogleclassroom />
                             My enroll class</NavLink> */}
-                            <NavLink to="/">
+                            <NavLink to="/dashbord/myprofile">
                                 <CgProfile />
                                 Profile</NavLink>
                         </li>
@@ -64,6 +64,7 @@ const Dashbord = () => {
 
 
             <div className="flex-1 p-20">
+
                 <Outlet></Outlet>
             </div>
         </div>
