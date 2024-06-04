@@ -1,4 +1,5 @@
 import Banner from "./Banner";
+import BecomeTeacher from "./BecomeTeacherSection/BecomeTeacher";
 import Footer from "./Footer";
 import HighlightSection from "./HighlightSection/HighlightSection";
 import Navbar from "./Navbar";
@@ -14,6 +15,7 @@ const Home = () => {
                 <Banner></Banner>
                 <Partners></Partners>
                 <HighlightSection></HighlightSection>
+                <BecomeTeacher></BecomeTeacher>
                 <Footer></Footer>
             </div>
         </div>

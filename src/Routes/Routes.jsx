@@ -9,6 +9,7 @@ import Dashbord from "../Dashbord/Dashbord";
 import MyEnrollClass from "../Dashbord/Student/MyEnrollClass";
 import StudentProfile from "../Dashbord/Student/StudentProfile";
 import Users from "../Dashbord/Users";
+import TeachesOn from "../Pages/TeachesOn/TeachesOn";
 
 
 const router = createBrowserRouter([
@@ -23,6 +24,10 @@ const router = createBrowserRouter([
             {
                 path:'/allclasses',
                 element:<PrivateRoutes><AllClasses></AllClasses></PrivateRoutes>
+            },
+            {
+                path:'/teachesOnLearnBridge',
+                element:<TeachesOn></TeachesOn>
             },
             {
                 path: '/login',
