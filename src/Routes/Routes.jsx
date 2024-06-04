@@ -10,6 +10,7 @@ import MyEnrollClass from "../Dashbord/Student/MyEnrollClass";
 import StudentProfile from "../Dashbord/Student/StudentProfile";
 import Users from "../Dashbord/Users";
 import TeachesOn from "../Pages/TeachesOn/TeachesOn";
+import TeacherRequest from "../Dashbord/TeacherRequest/TeacherRequest";
 
 
 const router = createBrowserRouter([
@@ -47,6 +48,10 @@ const router = createBrowserRouter([
             {
                 path:'/dashbord/users',
                 element:<Users></Users>
+            },
+            {
+                path:'/dashbord/teacherrequest',
+                element:<TeacherRequest></TeacherRequest>
             },
 
             // student related routes

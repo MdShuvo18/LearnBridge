@@ -41,7 +41,7 @@ const Dashbord = () => {
                             <NavLink to="/">
                                 <FaHome></FaHome>
                                 Home</NavLink>
-                            <NavLink to="/">
+                            <NavLink to="/dashbord/teacherrequest">
                                 <FaRegQuestionCircle></FaRegQuestionCircle>
                                 Teacher Request</NavLink>
                             <NavLink to="/dashbord/users">
