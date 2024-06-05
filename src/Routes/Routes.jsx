@@ -15,6 +15,7 @@ import MyProfile from "../Dashbord/MyProfile/MyProfile";
 import Addclasses from "../Dashbord/Teacher/Addclasses";
 import MyClass from "../Dashbord/Teacher/MyClass";
 import UpdateClass from "../Dashbord/Teacher/UpdateClass";
+import Allclasses from "../Dashbord/Admin/Allclasses";
 
 
 
@@ -50,6 +51,8 @@ const router = createBrowserRouter([
         path: '/dashbord',
         element: <Dashbord></Dashbord>,
         children: [
+            // admin related routes
+
             {
                 path: '/dashbord/users',
                 element: <Users></Users>
@@ -57,6 +60,10 @@ const router = createBrowserRouter([
             {
                 path: '/dashbord/teacherrequest',
                 element: <TeacherRequest></TeacherRequest>
+            },
+            {
+                path:'/dashbord/allclasses',
+                element:<Allclasses></Allclasses>
             },
             {
                 path: '/dashbord/myprofile',

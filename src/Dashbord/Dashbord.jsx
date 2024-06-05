@@ -78,7 +78,7 @@ const Dashbord = () => {
                                     <NavLink to="/dashbord/users">
                                         <FaUser></FaUser>
                                         Users</NavLink>
-                                    <NavLink to="/">
+                                    <NavLink to="/dashbord/allclasses">
                                         <SiGoogleclassroom />
                                         All classes</NavLink>
                                     {/* <NavLink to="/dashbord/myenrollclass">
