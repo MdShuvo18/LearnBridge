@@ -1,25 +1,45 @@
 import { useContext } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useNavigate } from "react-router-dom";
+import useAxiosSecure from "../../Hooks/useAxiosSecure";
+import Swal from "sweetalert2";
 
 
 const UpdateClass = () => {
     const loadClass = useLoaderData()
-    const { title, image, description, price } = loadClass
+    const { title, image, description, price,_id } = loadClass
     const { user } = useContext(AuthContext)
+    const axiosSecure = useAxiosSecure()
+    const navigate = useNavigate()
 
     const handleUpdate = (e) => {
         e.preventDefault()
-        // const form = e.target;
-        // const title = form.title.value;
-        // const image = form.image.value;
-        // const price = form.price.value;
-        // const description = form.description.value;
-        // const name = form.value.name;
-        // const email = form.value.email;
-        // const addClassItem = { title: title, image: image, price: price, description: description, name: name, email: email }
+        const form = e.target;
+        const title = form.title.value;
+        const image = form.image.value;
+        const price = form.price.value;
+        const description = form.description.value;
+        const name = form.name.value;
+        const email = form.email.value;
+        const addClassItem = { title: title, image: image, price: price, description: description, name: name, email: email }
         // console.log(addClassItem)
-        console.log('ok')
+        // console.log('ok')
+        axiosSecure.put(`http://localhost:5000/addteachersclass/${_id}`,addClassItem)
+        .then(res=>{
+            // console.log(res.data)
+            if(res.data.modifiedCount > 0){
+                navigate('/dashbord/myclass')
+                Swal.fire({
+                    position: "center",
+                    icon: "success",
+                    title: "Update Class Successfully",
+                    showConfirmButton: false,
+                    timer: 1500
+                  });
+            }
+        })
+
+
     }
     return (
         <div>
@@ -85,7 +105,6 @@ const UpdateClass = () => {
                             </label>
                         </div>
                     </div>
-
 
                     <input type="submit" value="Update" className="btn btn-block" />
 
