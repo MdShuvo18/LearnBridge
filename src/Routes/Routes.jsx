@@ -12,6 +12,7 @@ import Users from "../Dashbord/Users";
 import TeachesOn from "../Pages/TeachesOn/TeachesOn";
 import TeacherRequest from "../Dashbord/TeacherRequest/TeacherRequest";
 import MyProfile from "../Dashbord/MyProfile/MyProfile";
+import Addclasses from "../Dashbord/Teacher/Addclasses";
 
 
 
@@ -58,6 +59,11 @@ const router = createBrowserRouter([
             {
                 path:'/dashbord/myprofile',
                 element:<MyProfile></MyProfile>
+            },
+            // teacher related routes
+            {
+                path:'/dashbord/addclasses',
+                element:<Addclasses></Addclasses>
             },
             // student related routes
             {

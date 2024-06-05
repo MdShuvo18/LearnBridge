@@ -15,6 +15,7 @@ const TeachesOn = () => {
         const category = form.category.value;
         const experience = form.experience.value;
         const details = form.details.value;
+        // const email =form.email.value;
         const applyItem={name,image,title,category,experience,details}
         console.log(applyItem)
 
@@ -120,6 +121,16 @@ const TeachesOn = () => {
                                 </label>
                             </div>
                         </div>
+                        {/* <div className="md:flex mb-8">
+                            <div className="form-control md:w-1/2">
+                                <label className="label">
+                                    <span className="label-text">Email</span>
+                                </label>
+                                <label className="input-group">
+                                    <input type="email" name="email" placeholder="Email" className="input input-bordered w-full" />
+                                </label>
+                            </div>
+                        </div> */}
 
                         <input type="submit" value="Apply" className="btn btn-block" />
 

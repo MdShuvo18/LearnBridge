@@ -3,10 +3,15 @@ import { FaHome, FaRegQuestionCircle, FaUser } from "react-icons/fa";
 import { SiGoogleclassroom } from "react-icons/si";
 import { NavLink, Outlet } from "react-router-dom";
 import useAdmin from "../Hooks/useAdmin";
+import useTeacher from "../Hooks/useTeacher";
+import { MdAddCircleOutline } from "react-icons/md";
 
 
 const Dashbord = () => {
     const [isAdmin] = useAdmin()
+    const [isTeacher] = useTeacher()
+    // console.log(isAdmin)
+    // console.log(isTeacher)
     return (
         <div className="flex">
             <div className="dropdown">
@@ -61,16 +66,34 @@ const Dashbord = () => {
                                         <CgProfile />
                                         Profile</NavLink>
                                 </li>
-                            </> : <>
-                                <NavLink to="/">
-                                    <FaHome></FaHome>
-                                    Home</NavLink>
                             </>
+                                : (isTeacher
+                                    ?
+                                    <div>
+                                        <NavLink className='flex justify-items-center gap-2' to="/dashbord/addclasses">
+                                        <MdAddCircleOutline />
+                                            Add class</NavLink>
+                                        <NavLink className='flex justify-items-center gap-2' to="/">
+                                        <SiGoogleclassroom />
+                                            My class</NavLink>
+                                        <NavLink className='flex justify-items-center gap-2' to="/">
+                                        <CgProfile />
+                                            Profile</NavLink>
+                                    </div>
+                                    :
+                                    <NavLink to="/">
+                                        <FaHome></FaHome>
+                                        Home</NavLink>)
+
                         }
                     </ul>
                 </div>
             </div>
+            {/* a. Add class
+b. My class
+c. Profile 
 
+ a ? 1 : (b ? 2 : 3)*/}
 
 
             <div className="flex-1 p-20">
