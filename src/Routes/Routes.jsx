@@ -13,6 +13,8 @@ import TeachesOn from "../Pages/TeachesOn/TeachesOn";
 import TeacherRequest from "../Dashbord/TeacherRequest/TeacherRequest";
 import MyProfile from "../Dashbord/MyProfile/MyProfile";
 import Addclasses from "../Dashbord/Teacher/Addclasses";
+import MyClass from "../Dashbord/Teacher/MyClass";
+import UpdateClass from "../Dashbord/Teacher/UpdateClass";
 
 
 
@@ -26,53 +28,63 @@ const router = createBrowserRouter([
                 element: <Home></Home>
             },
             {
-                path:'/allclasses',
-                element:<PrivateRoutes><AllClasses></AllClasses></PrivateRoutes>
+                path: '/allclasses',
+                element: <PrivateRoutes><AllClasses></AllClasses></PrivateRoutes>
             },
             {
-                path:'/teachesOnLearnBridge',
-                element:<TeachesOn></TeachesOn>
+                path: '/teachesOnLearnBridge',
+                element: <TeachesOn></TeachesOn>
             },
             {
                 path: '/login',
                 element: <Login></Login>
             },
             {
-                path:'/signup',
-                element:<Register></Register>
-            
+                path: '/signup',
+                element: <Register></Register>
+
             }
         ]
     },
     {
-        path:'/dashbord',
-        element:<Dashbord></Dashbord>,
-        children:[
+        path: '/dashbord',
+        element: <Dashbord></Dashbord>,
+        children: [
             {
-                path:'/dashbord/users',
-                element:<Users></Users>
+                path: '/dashbord/users',
+                element: <Users></Users>
             },
             {
-                path:'/dashbord/teacherrequest',
-                element:<TeacherRequest></TeacherRequest>
+                path: '/dashbord/teacherrequest',
+                element: <TeacherRequest></TeacherRequest>
             },
             {
-                path:'/dashbord/myprofile',
-                element:<MyProfile></MyProfile>
+                path: '/dashbord/myprofile',
+                element: <MyProfile></MyProfile>
             },
             // teacher related routes
             {
-                path:'/dashbord/addclasses',
-                element:<Addclasses></Addclasses>
+                path: '/dashbord/addclasses',
+                element: <Addclasses></Addclasses>
+            },
+            {
+                path: '/dashbord/myclass',
+                element: <MyClass></MyClass>
+            },
+            {
+                path: '/dashbord/updateclass/:id',
+                element: <UpdateClass></UpdateClass>,
+                loader:({params})=>fetch(`http://localhost:5000/addteachersclass/${params.id}`)
+             
             },
             // student related routes
             {
-               path:'/dashbord/myenrollclass',
-               element:<MyEnrollClass></MyEnrollClass> 
+                path: '/dashbord/myenrollclass',
+                element: <MyEnrollClass></MyEnrollClass>
             },
             {
-                path:'/dashbord/studentprofile',
-                element:<StudentProfile></StudentProfile>
+                path: '/dashbord/studentprofile',
+                element: <StudentProfile></StudentProfile>
             }
         ]
     }

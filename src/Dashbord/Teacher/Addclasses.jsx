@@ -1,11 +1,14 @@
 import { useContext } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
 import useAxiosSecure from "../../Hooks/useAxiosSecure";
+import { useNavigate } from "react-router-dom";
+
 
 
 const Addclasses = () => {
     const { user } = useContext(AuthContext)
     const axiosSecure=useAxiosSecure()
+    const navigate=useNavigate()
 
     const handleAddClasses = (e) => {
         e.preventDefault()
@@ -14,13 +17,15 @@ const Addclasses = () => {
         const image = form.image.value;
         const price = form.price.value;
         const description = form.description.value;
-        // const name=form.value.name;
-        // const email=form.value.email;
-        const addClassItem={title: title, image: image, price: price, description: description}
+
+        const name=form.value.name;
+        const email=form.value.email;
+        const addClassItem={title: title, image: image, price: price, description: description, name: name, email:email}
         console.log(addClassItem)
         axiosSecure.post('/addteachersclass',addClassItem)
         .then(res=>{
             console.log(res.data)
+            navigate('/dashbord/myclass')
         })
     }
     return (
@@ -75,7 +80,7 @@ const Addclasses = () => {
                                     <span className="label-text">Name</span>
                                 </label>
                                 <label className="input-group">
-                                    <input defaultValue={user.displayName} type="text" name="name" placeholder="Name" className="input input-bordered w-full" disabled />
+                                    <input defaultValue={user?.displayName} type="text" name="name" placeholder="Name" className="input input-bordered w-full" disabled />
                                 </label>
                             </div>
                             <div className="form-control md:w-1/2 ml-4">
@@ -83,13 +88,13 @@ const Addclasses = () => {
                                     <span className="label-text">Email</span>
                                 </label>
                                 <label className="input-group">
-                                    <input defaultValue={user.email} type="email" name="email" placeholder="Email" className="input input-bordered w-full" disabled />
+                                    <input defaultValue={user?.email} type="email" name="email" placeholder="Email" className="input input-bordered w-full" disabled />
                                 </label>
                             </div>
                         </div>
                       
 
-                        <input type="submit" value="Add Class" className="btn btn-block" />
+                       <input type="submit" value="Add Class" className="btn btn-block" />
 
                     </form>
             </div>
