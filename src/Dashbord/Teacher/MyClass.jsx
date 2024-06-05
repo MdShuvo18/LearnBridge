@@ -1,17 +1,47 @@
 import { useQuery } from "@tanstack/react-query";
 import useAxiosSecure from "../../Hooks/useAxiosSecure";
 import { Link } from "react-router-dom";
+import Swal from "sweetalert2";
 
 
 const MyClass = () => {
     const axiosSecure = useAxiosSecure()
-    const { data: classes = [] } = useQuery({
+    const { data: classes = [] ,refetch} = useQuery({
         queryKey: ['classes'],
         queryFn: async () => {
             const res = await axiosSecure.get('/addteachersclass')
             return res.data
         }
     })
+
+    const handleDelete = (_id) => {
+        console.log(_id)
+        Swal.fire({
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, delete it!"
+          }).then((result) => {
+            if (result.isConfirmed) {
+                axiosSecure.delete(`/addteachersclass/${_id}`)
+                 .then(res => {
+                    console.log(res.data)
+                  })
+                 .catch(err => {
+                    console.log(err)
+                  })
+                Swal.fire(
+                  "Deleted!",
+                  "Your file has been deleted.",
+                  "success"
+                );
+                refetch()
+            }
+          });
+    }
     return (
         <div className="grid lg:grid-cols-2 gap-5 ">
             {
@@ -42,7 +72,7 @@ const MyClass = () => {
                             <Link to={`/dashbord/updateclass/${item._id}`}>
                                 <div className="btn btn-outline btn-success rounded-full">Update</div>
                             </Link>
-                            <div className="btn btn-outline btn-error rounded-full">Delete</div>
+                            <div onClick={() => handleDelete(item._id)} className="btn btn-outline btn-error rounded-full">Delete</div>
                         </div>
                         <div className="text-center">
                             <a href="#_" className="inline-flex items-center justify-center w-full px-6 py-3 mb-2 text-lg text-white bg-green-500 rounded-md hover:bg-green-400 sm:w-auto sm:mb-0" data-primary="green-400" data-rounded="rounded-2xl" data-primary-reset="{}">

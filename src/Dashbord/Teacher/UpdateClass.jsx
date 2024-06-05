@@ -7,7 +7,7 @@ import Swal from "sweetalert2";
 
 const UpdateClass = () => {
     const loadClass = useLoaderData()
-    const { title, image, description, price,_id } = loadClass
+    const { title, image, description, price, _id } = loadClass
     const { user } = useContext(AuthContext)
     const axiosSecure = useAxiosSecure()
     const navigate = useNavigate()
@@ -24,20 +24,20 @@ const UpdateClass = () => {
         const addClassItem = { title: title, image: image, price: price, description: description, name: name, email: email }
         // console.log(addClassItem)
         // console.log('ok')
-        axiosSecure.put(`http://localhost:5000/addteachersclass/${_id}`,addClassItem)
-        .then(res=>{
-            // console.log(res.data)
-            if(res.data.modifiedCount > 0){
-                navigate('/dashbord/myclass')
-                Swal.fire({
-                    position: "center",
-                    icon: "success",
-                    title: "Update Class Successfully",
-                    showConfirmButton: false,
-                    timer: 1500
-                  });
-            }
-        })
+        axiosSecure.put(`http://localhost:5000/addteachersclass/${_id}`, addClassItem)
+            .then(res => {
+                // console.log(res.data)
+                if (res.data.modifiedCount > 0) {
+                    navigate('/dashbord/myclass')
+                    Swal.fire({
+                        position: "center",
+                        icon: "success",
+                        title: "Update Class Successfully",
+                        showConfirmButton: false,
+                        timer: 1500
+                    });
+                }
+            })
 
 
     }
