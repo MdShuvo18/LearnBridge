@@ -17,9 +17,8 @@ const Addclasses = () => {
         const image = form.image.value;
         const price = form.price.value;
         const description = form.description.value;
-
-        const name=form.value.name;
-        const email=form.value.email;
+        const name=form.name.value;
+        const email=form.email.value;
         const addClassItem={title: title, image: image, price: price, description: description, name: name, email:email}
         console.log(addClassItem)
         axiosSecure.post('/addteachersclass',addClassItem)

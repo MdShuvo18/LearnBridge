@@ -1,10 +1,16 @@
 import { useQuery } from "@tanstack/react-query";
 import useAxiosSecure from "../../Hooks/useAxiosSecure";
+import useAxiosPublic from "../../Hooks/useAxiosPublic";
+import Swal from "sweetalert2";
+import { useState } from "react";
+
 
 
 const Allclasses = () => {
     const axiosSecure = useAxiosSecure()
-    const { data: classes = [] } = useQuery({
+    const axiosPublic = useAxiosPublic()
+    const [status, setStatus] = useState({})
+    const { data: classes = [], refetch } = useQuery({
         queryKey: ['classes'],
         queryFn: async () => {
             const res = await axiosSecure.get('/addteachersclass')
@@ -12,6 +18,36 @@ const Allclasses = () => {
             return res.data
         }
     })
+
+    const handleApproved = (item) => {
+        // console.log(item)
+        const classInfo = {
+            classId: item._id,
+            title: item.title,
+            image: item.image,
+            description: item.description,
+            price: parseInt(item.price),
+            name: item.name,
+            email: item.email
+        }
+        axiosPublic.post('/allclass', classInfo)
+            .then(res => {
+                console.log(res.data)
+            })
+
+        setStatus((prevStatus) => ({
+            ...prevStatus,
+           [item._id]:'Approved'
+        }))
+
+    }
+
+    const handleReject = (item) => {
+        setStatus((prevStatus) => ({
+            ...prevStatus,
+           [item._id]:'Rejected'
+        }))
+    }
     return (
         <div>
             <div className="overflow-x-auto">
@@ -50,11 +86,19 @@ const Allclasses = () => {
                                 </td>
                                 <td>{item.email}</td>
                                 <td>
-                                <textarea value={item.description} className="textarea textarea-bordered h-24" placeholder=""></textarea>
+                                    <textarea value={item.description} className="textarea textarea-bordered h-24" placeholder=""></textarea>
                                 </td>
-                                <th>
-                                    <button className="btn btn-ghost btn-xs">Approved</button>
-                                    <button className="btn btn-ghost btn-xs">Reject</button>
+                                <th>{
+                                    status[item._id]
+                                        ?
+                                        status[item._id]
+                                        :
+                                        <>
+                                            <button onClick={() => handleApproved(item)} className="btn btn-ghost btn-xs">Approved</button>
+                                            <button onClick={() => handleReject(item)} className="btn btn-ghost btn-xs">Reject</button>
+                                        </>
+                                }
+
                                 </th>
                                 <th>
                                     <button className="btn btn-outline btn-success btn-xs">see progress</button>
