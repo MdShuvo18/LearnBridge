@@ -37,7 +37,7 @@ const Allclasses = () => {
 
         setStatus((prevStatus) => ({
             ...prevStatus,
-           [item._id]:'Approved'
+            [item._id]: 'Approved'
         }))
 
     }
@@ -45,7 +45,7 @@ const Allclasses = () => {
     const handleReject = (item) => {
         setStatus((prevStatus) => ({
             ...prevStatus,
-           [item._id]:'Rejected'
+            [item._id]: 'Rejected'
         }))
     }
     return (
@@ -101,7 +101,7 @@ const Allclasses = () => {
 
                                 </th>
                                 <th>
-                                    <button className="btn btn-outline btn-success btn-xs">see progress</button>
+                                    <button className="btn btn-outline btn-success btn-xs" disabled={status[item._id] !== 'Approved'}>see progress</button>
                                 </th>
                             </tr>)
                         }
