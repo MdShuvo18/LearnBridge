@@ -16,6 +16,9 @@ import Addclasses from "../Dashbord/Teacher/Addclasses";
 import MyClass from "../Dashbord/Teacher/MyClass";
 import UpdateClass from "../Dashbord/Teacher/UpdateClass";
 import Allclasses from "../Dashbord/Admin/Allclasses";
+import EnrollBtn from "../Pages/AllClasses/EnrollBtn";
+
+
 
 
 
@@ -31,6 +34,11 @@ const router = createBrowserRouter([
             {
                 path: '/allclasses',
                 element: <PrivateRoutes><AllClasses></AllClasses></PrivateRoutes>
+            },
+            {
+                path:'/enroll/:id',
+                element:<EnrollBtn></EnrollBtn>,
+                loader:()=>fetch(`http://localhost:5000/allclass`)
             },
             {
                 path: '/teachesOnLearnBridge',
@@ -69,7 +77,8 @@ const router = createBrowserRouter([
                 path: '/dashbord/myprofile',
                 element: <MyProfile></MyProfile>
             },
-            // teacher related routes
+        
+           // teacher related routes
             {
                 path: '/dashbord/addclasses',
                 element: <Addclasses></Addclasses>

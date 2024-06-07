@@ -16,6 +16,7 @@ const MyProfile = () => {
                     <div className="card-actions">
                         <button className="btn btn-primary">Buy Now</button>
                     </div>
+                    <p>{user.role}</p>
                 </div>
             </div>
         </div>

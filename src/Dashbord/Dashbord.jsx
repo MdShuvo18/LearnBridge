@@ -98,7 +98,7 @@ const Dashbord = () => {
                                         <NavLink className='flex justify-items-center gap-2' to="/dashbord/myclass">
                                         <SiGoogleclassroom />
                                             My class</NavLink>
-                                        <NavLink className='flex justify-items-center gap-2' to="/">
+                                        <NavLink className='flex justify-items-center gap-2' to="/dashbord/myprofile">
                                         <CgProfile />
                                             Profile</NavLink>
                                     </div>

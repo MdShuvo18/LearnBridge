@@ -10,7 +10,7 @@ const Allclasses = () => {
     const axiosSecure = useAxiosSecure()
     const axiosPublic = useAxiosPublic()
     const [status, setStatus] = useState({})
-    const { data: classes = [], refetch } = useQuery({
+    const { data: classes = [] } = useQuery({
         queryKey: ['classes'],
         queryFn: async () => {
             const res = await axiosSecure.get('/addteachersclass')
