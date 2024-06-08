@@ -17,6 +17,7 @@ import MyClass from "../Dashbord/Teacher/MyClass";
 import UpdateClass from "../Dashbord/Teacher/UpdateClass";
 import Allclasses from "../Dashbord/Admin/Allclasses";
 import EnrollBtn from "../Pages/AllClasses/EnrollBtn";
+import Payment from "../Pages/AllClasses/Payment";
 
 
 
@@ -33,12 +34,17 @@ const router = createBrowserRouter([
             },
             {
                 path: '/allclasses',
-                element: <PrivateRoutes><AllClasses></AllClasses></PrivateRoutes>
+                element: <AllClasses></AllClasses>
+            },
+             // payment related api
+            {
+                path: '/payment',
+                element: <Payment></Payment>
             },
             {
-                path:'/enroll/:id',
-                element:<EnrollBtn></EnrollBtn>,
-                loader:()=>fetch(`http://localhost:5000/allclass`)
+                path: '/enroll/:id',
+                element:<PrivateRoutes> <EnrollBtn></EnrollBtn></PrivateRoutes>,
+                loader: () => fetch(`http://localhost:5000/allclass`)
             },
             {
                 path: '/teachesOnLearnBridge',
@@ -70,15 +76,15 @@ const router = createBrowserRouter([
                 element: <TeacherRequest></TeacherRequest>
             },
             {
-                path:'/dashbord/allclasses',
-                element:<Allclasses></Allclasses>
+                path: '/dashbord/allclasses',
+                element: <Allclasses></Allclasses>
             },
             {
                 path: '/dashbord/myprofile',
                 element: <MyProfile></MyProfile>
             },
-        
-           // teacher related routes
+
+            // teacher related routes
             {
                 path: '/dashbord/addclasses',
                 element: <Addclasses></Addclasses>
@@ -90,8 +96,8 @@ const router = createBrowserRouter([
             {
                 path: '/dashbord/updateclass/:id',
                 element: <UpdateClass></UpdateClass>,
-                loader:({params})=>fetch(`http://localhost:5000/addteachersclass/${params.id}`)
-             
+                loader: ({ params }) => fetch(`http://localhost:5000/addteachersclass/${params.id}`)
+
             },
             // student related routes
             {
@@ -102,6 +108,8 @@ const router = createBrowserRouter([
                 path: '/dashbord/studentprofile',
                 element: <StudentProfile></StudentProfile>
             }
+           
+           
         ]
     }
 ]);

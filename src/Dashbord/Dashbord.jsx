@@ -103,9 +103,9 @@ const Dashbord = () => {
                                             Profile</NavLink>
                                     </div>
                                     :
-                                    <NavLink to="/">
+                                    <NavLink to="/dashbord/myenrollclass">
                                         <FaHome></FaHome>
-                                        Home</NavLink>)
+                                        My Enroll Class</NavLink>)
 
                         }
                     </ul>

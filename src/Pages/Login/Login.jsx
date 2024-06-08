@@ -97,8 +97,8 @@ const Login = () => {
 
                             success && <p className="text-lg text-center text-green-700">{success}</p>
                         }
-                        <div className="text-center">
-                            <p>Don't have an account? <Link to="/signup">Register</Link></p>
+                        <div className="text-center p-5">
+                            <p>Don't have an account? <Link to="/signup"><span className="text-blue-700">Register</span></Link></p>
                         </div>
                     </div>
 

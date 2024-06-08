@@ -36,17 +36,6 @@ const Register = () => {
     }
 
 
-    const handleGithubSignIn = () => {
-        // e.preventDefault()
-        signInWithPopup(auth, gitHubProvider)
-            .then(result => {
-                const user = result.user;
-                console.log(user);
-            })
-            .catch(error => {
-                console.log(error.message)
-            })
-    }
 
     const handleRegister = (e) => {
         e.preventDefault();
@@ -152,7 +141,7 @@ const Register = () => {
 
                             </div>
                             <div className="form-control mt-6">
-                                <input type="submit" value='sign up' className="btn btn-primary" />
+                                <input type="submit" value='sign up' className="btn btn-outline btn-success" />
                             </div>
                         </form>
 
@@ -160,11 +149,7 @@ const Register = () => {
                             <IoLogoGoogle></IoLogoGoogle>
                             <span className="ml-2">Sign Up With Google</span>
                         </button>
-                        <button onClick={handleGithubSignIn} className="btn btn-outline w-full">
-
-                            <IoLogoGithub></IoLogoGithub>
-                            <span className="ml-2">Sign Up With Github</span>
-                        </button>
+    
                         <p className="p-4 text-center mt-3">Already have an account? <Link to='/login' className="text-blue-700">Login</Link></p>
                         {
                             register && <p className="text-lg text-center text-red-700">{register}</p>

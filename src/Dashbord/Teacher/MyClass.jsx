@@ -13,6 +13,7 @@ const MyClass = () => {
             return res.data
         }
     })
+    console.log(classes)
 
     const handleDelete = (_id) => {
         console.log(_id)
