@@ -88,11 +88,19 @@ const CheckOutForm = () => {
                     title: itemDetail?.title,
                     transectionId: paymentIntent.id,
                     image: itemDetail?.image,
-                    name: itemDetail?.name
+                    name: itemDetail?.name,
+                    
                 }
                 const res = await axiosSecure.post('/payment', payment)
-                console.log(res.data)
-
+              if(res.data.insertedId)
+                Swal.fire({
+                            position: "center",
+                            icon: "success",
+                            title: "Payment success",
+                            showConfirmButton: false,
+                            timer: 1500
+                        });
+                          navigate('/dashbord/myenrollclass')
             }
 
         }

@@ -12,6 +12,7 @@ const AllClasses = () => {
         queryKey: ['classes'],
         queryFn: async () => {
             const res = await axiosPublic.get('/allclass')
+            // console.log(res.data)
             return res.data
         }
     })
