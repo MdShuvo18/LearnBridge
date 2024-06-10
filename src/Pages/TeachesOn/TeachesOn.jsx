@@ -1,10 +1,14 @@
 import Swal from "sweetalert2";
 import useAxiosSecure from "../../Hooks/useAxiosSecure";
 import Navbar from "../Home/Navbar";
+import { useContext } from "react";
+import { AuthContext } from "../../Provider/AuthProvider";
 
 
 const TeachesOn = () => {
     const axiosSecure = useAxiosSecure()
+    const { user } = useContext(AuthContext)
+    console.log(user)
 
     const handleTeach = (e) => {
         e.preventDefault()
@@ -40,11 +44,11 @@ const TeachesOn = () => {
         <div>
             <Navbar></Navbar>
             <div>
-                <img src="https://i.ibb.co/nr756wC/wonderlane-b9-od-Qi5o-Do-unsplash.jpg" alt="" />
-
                 {/* form section */}
                 <div className="bg-[#F4F3F0] p-24">
                     <h2 className="text-3xl font-extrabold text-center">Apply For Teaching</h2>
+
+                    <div className="text-center"> <img className="w-12 h-12 rounded-full" src={user?.photoURL} alt="photo" /></div>
                     <form onSubmit={handleTeach}>
                         {/* form name and quantity row */}
                         <div className="md:flex mb-8">
@@ -54,6 +58,7 @@ const TeachesOn = () => {
                                 </label>
                                 <label className="input-group">
                                     <input type="text" name="name" placeholder="Full Name" className="input input-bordered w-full" />
+                                
                                 </label>
                             </div>
                             <div className="form-control md:w-1/2 ml-4">
@@ -61,7 +66,7 @@ const TeachesOn = () => {
                                     <span className="label-text">Image</span>
                                 </label>
                                 <label className="input-group">
-                                    <input type="text" name="image" placeholder="img URL" className="input input-bordered w-full" />
+                                    <input defaultValue={user?.photoURL} type="text" name="image" placeholder="img URL" className="input input-bordered w-full" />
                                 </label>
                             </div>
                         </div>
@@ -115,11 +120,11 @@ const TeachesOn = () => {
                                     <span className="label-text">Details</span>
                                 </label>
                                 <label className="input-group">
-                                    <input type="text" name="details" placeholder="Details" className="input input-bordered w-full" />
+                                    <input defaultValue={user?.email} type="text" name="details" placeholder="Details" className="input input-bordered w-full" />
                                 </label>
                             </div>
                         </div>
-                       
+
 
                         <input type="submit" value="Submit for review" className="btn btn-block" />
 

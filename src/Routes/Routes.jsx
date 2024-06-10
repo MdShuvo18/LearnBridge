@@ -18,6 +18,7 @@ import UpdateClass from "../Dashbord/Teacher/UpdateClass";
 import Allclasses from "../Dashbord/Admin/Allclasses";
 import EnrollBtn from "../Pages/AllClasses/EnrollBtn";
 import Payment from "../Pages/AllClasses/Payment";
+import SeeDetails from "../Dashbord/Teacher/SeeDetails";
 
 
 
@@ -69,7 +70,7 @@ const router = createBrowserRouter([
 
             {
                 path: '/dashbord/users',
-                element: <Users></Users>
+                element:<PrivateRoutes> <Users></Users></PrivateRoutes>
             },
             {
                 path: '/dashbord/teacherrequest',
@@ -92,6 +93,11 @@ const router = createBrowserRouter([
             {
                 path: '/dashbord/myclass',
                 element: <MyClass></MyClass>
+            },
+            {
+                path:'/dashbord/seedetails/:id',
+                element:<SeeDetails></SeeDetails>,
+                loader:({params})=>fetch(`http://localhost:5000/addteachersclass/${params.id}`)
             },
             {
                 path: '/dashbord/updateclass/:id',

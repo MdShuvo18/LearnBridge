@@ -99,7 +99,7 @@ const Addclasses = () => {
                                 <span className="label-text">Category</span>
                             </label>
                             <label className="input-group">
-                                <input defaultValue={user.category} type="text" name="category" placeholder="Category" className="input input-bordered w-full" />
+                                <input  type="text" name="category" placeholder="Category" className="input input-bordered w-full" />
                             </label>
                         </div>
                     </div>

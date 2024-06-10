@@ -103,12 +103,14 @@ const Dashbord = () => {
                                             Profile</NavLink>
                                     </div>
                                     :
-                                    <div> <NavLink className='flex justify-items-center gap-2' to="/dashbord/myenrollclass">
-                                        <FaHome></FaHome>
-                                        My Enroll Class</NavLink>
+                                    <div>
+                                        <NavLink className='flex justify-items-center gap-2' to="/dashbord/myenrollclass">
+                                            <FaHome></FaHome>
+                                            My Enroll Class</NavLink>
                                         <NavLink className='flex justify-items-center gap-2' to="/dashbord/myprofile">
                                             <CgProfile />
-                                            Profile</NavLink></div>)
+                                            Profile</NavLink>
+                                    </div>)
 
                         }
                     </ul>

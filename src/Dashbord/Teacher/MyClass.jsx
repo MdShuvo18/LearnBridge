@@ -5,8 +5,8 @@ import Swal from "sweetalert2";
 
 
 const MyClass = () => {
-    const axiosSecure = useAxiosSecure()
-    const { data: classes = [] ,refetch} = useQuery({
+    const axiosSecure = useAxiosSecure();
+    const { data: classes = [], refetch } = useQuery({
         queryKey: ['classes'],
         queryFn: async () => {
             const res = await axiosSecure.get('/addteachersclass')
@@ -25,24 +25,26 @@ const MyClass = () => {
             confirmButtonColor: "#3085d6",
             cancelButtonColor: "#d33",
             confirmButtonText: "Yes, delete it!"
-          }).then((result) => {
+        }).then((result) => {
             if (result.isConfirmed) {
                 axiosSecure.delete(`/addteachersclass/${_id}`)
-                 .then(res => {
-                    console.log(res.data)
-                  })
-                 .catch(err => {
-                    console.log(err)
-                  })
+                    .then(res => {
+                        console.log(res.data)
+                    })
+                    .catch(err => {
+                        console.log(err)
+                    })
                 Swal.fire(
-                  "Deleted!",
-                  "Your file has been deleted.",
-                  "success"
+                    "Deleted!",
+                    "Your file has been deleted.",
+                    "success"
                 );
                 refetch()
             }
-          });
+        });
     }
+
+
     return (
         <div className="grid lg:grid-cols-2 gap-5 ">
             {
@@ -75,12 +77,15 @@ const MyClass = () => {
                             </Link>
                             <div onClick={() => handleDelete(item._id)} className="btn btn-outline btn-error rounded-full">Delete</div>
                         </div>
-                        <div className="text-center">
-                            <a href="#_" className="inline-flex items-center justify-center w-full px-6 py-3 mb-2 text-lg text-white bg-green-500 rounded-md hover:bg-green-400 sm:w-auto sm:mb-0" data-primary="green-400" data-rounded="rounded-2xl" data-primary-reset="{}">
-                                See details
-                                <svg className="w-4 h-4 ml-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd"></path></svg>
-                            </a>
-                        </div>
+                        <Link to={`/dashbord/seedetails/${item._id}`}>
+                            <div className="text-center">
+                                <a href="#_" className="inline-flex items-center justify-center w-full px-6 py-3 mb-2 text-lg text-white bg-green-500 rounded-md hover:bg-green-400 sm:w-auto sm:mb-0" data-primary="green-400" data-rounded="rounded-2xl" data-primary-reset="{}">
+                                    See details
+                                    <svg className="w-4 h-4 ml-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd"></path></svg>
+                                </a>
+
+                            </div>
+                        </Link>
                     </div>
                 </div>)
             }
