@@ -94,14 +94,19 @@ const Addclasses = () => {
                     </div>
 
                     <div className="md:flex mb-8">
-                        <div className="form-control md:w-1/2 ml-4">
-                            <label className="label">
-                                <span className="label-text">Category</span>
-                            </label>
-                            <label className="input-group">
-                                <input  type="text" name="category" placeholder="Category" className="input input-bordered w-full" />
-                            </label>
-                        </div>
+                    <div className="form-control md:w-1/2 ml-4">
+                                <label className="label">
+                                    <span className="label-text">Category</span>
+                                </label>
+                                <select name="category" className="input input-bordered w-full ">
+                                    <option value="Web Development">Web Development</option>
+                                    <option value="Introduction to Python">Introduction to Python</option>
+                                    <option value="Machine Learning A-Z">Machine Learning A-Z</option>
+                                    <option value="Graphic Design Masterclass">Graphic Design Masterclass</option>
+                                    <option value="Excel for Professionals">Excel for Professionals</option>
+                                    <option value="Digital Marketing Essentials">Digital Marketing Essentials</option>
+                                </select>
+                            </div>
                     </div>
 
 

@@ -18,9 +18,9 @@ const TeachesOn = () => {
         const title = form.title.value;
         const category = form.category.value;
         const experience = form.experience.value;
-        const details = form.details.value;
+        const email = form.email.value;
         // const email =form.email.value;
-        const applyItem = { name, image, title, category, experience, details }
+        const applyItem = { name, image, title, category, experience, email }
         console.log(applyItem)
 
         axiosSecure.post('/applyteaches', applyItem)
@@ -117,10 +117,10 @@ const TeachesOn = () => {
                             </div>
                             <div className="form-control md:w-1/2 ml-4">
                                 <label className="label">
-                                    <span className="label-text">Details</span>
+                                    <span className="label-text">Email</span>
                                 </label>
                                 <label className="input-group">
-                                    <input defaultValue={user?.email} type="text" name="details" placeholder="Details" className="input input-bordered w-full" />
+                                    <input defaultValue={user?.email} type="text" name="email"  className="input input-bordered w-full" />
                                 </label>
                             </div>
                         </div>

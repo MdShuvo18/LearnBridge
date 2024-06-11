@@ -64,7 +64,7 @@ const AllClasses = () => {
                         <div className="card-body items-center text-center">
                             <h2 className='text-xl font-extrabold text-blue-300'>{item.title}</h2>
                             <p className="text-lg font-semibold"><span className="text-green-600">Posted By :</span> {item.name}</p>
-                            <p>Category : {item.category}</p>
+                            {/* <p>Category : {item.category}</p> */}
                             <p>  {
                                 item.description.split(' ').length > 35
                                     ? item.description.split(' ').slice(0, 35).join(' ') + '...'
@@ -72,7 +72,7 @@ const AllClasses = () => {
                             }</p>
                             <div className="flex gap-10">
                                 <p className="text-lg font-semibold text-red-400"><span className="text-green-600">Price :</span>${item.price}</p>
-                                <p className="text-lg font-semibold text-green-600"><span>Total Enroll : </span></p>
+                                <p className="text-lg font-semibold text-green-600"><span>Total Enroll :{item.total_enrolment} </span></p>
                             </div>
                             <div  className="card-actions">
                                <Link to={`/enroll/${item._id}`}>

@@ -21,7 +21,7 @@ const HighlightSection = () => {
     const { data: allclasses = [] } = useQuery({
         queryKey: ['allclasses'],
         queryFn: async () => {
-            const res = await axiosPublic.get('/allclasses')
+            const res = await axiosPublic.get('/allclass')
             console.log(res.data)
             return res.data
 

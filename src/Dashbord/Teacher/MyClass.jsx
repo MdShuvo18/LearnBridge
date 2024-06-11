@@ -2,19 +2,23 @@ import { useQuery } from "@tanstack/react-query";
 import useAxiosSecure from "../../Hooks/useAxiosSecure";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
+import { useContext } from "react";
+import { AuthContext } from "../../Provider/AuthProvider";
+
 
 
 const MyClass = () => {
     const axiosSecure = useAxiosSecure();
-    const { data: classes = [], refetch } = useQuery({
+    const {user}=useContext(AuthContext)
+    const { data: classes = [] } = useQuery({
         queryKey: ['classes'],
         queryFn: async () => {
-            const res = await axiosSecure.get('/addteachersclass')
+            const res = await axiosSecure.get(`/addteachersclass?email=${user?.email}`)
             return res.data
         }
     })
     console.log(classes)
-
+    
     const handleDelete = (_id) => {
         console.log(_id)
         Swal.fire({
@@ -63,7 +67,7 @@ const MyClass = () => {
                             }
                         </p>
                         <div className="flex">
-                            <p><span className="text-lg font-bold">Status :</span>Pending</p>
+                            <p><span className="text-lg font-bold">Status :</span>Accepted</p>
                             <p><span className="text-lg font-bold text-red-600">Price :</span>${item.price}</p>
 
                         </div>

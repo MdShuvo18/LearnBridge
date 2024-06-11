@@ -101,6 +101,9 @@ const Dashbord = () => {
                                         <NavLink className='flex justify-items-center gap-2' to="/dashbord/myprofile">
                                             <CgProfile />
                                             Profile</NavLink>
+                                        <NavLink className='flex justify-items-center gap-2' to="/">
+                                           <FaHome></FaHome>
+                                            Home</NavLink>
                                     </div>
                                     :
                                     <div>
@@ -110,6 +113,9 @@ const Dashbord = () => {
                                         <NavLink className='flex justify-items-center gap-2' to="/dashbord/myprofile">
                                             <CgProfile />
                                             Profile</NavLink>
+                                            <NavLink className='flex justify-items-center gap-2' to="/">
+                                           <FaHome></FaHome>
+                                            Home</NavLink>
                                     </div>)
 
                         }

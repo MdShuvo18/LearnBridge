@@ -7,6 +7,7 @@ import Swal from "sweetalert2";
 
 const UpdateClass = () => {
     const loadClass = useLoaderData()
+    console.log(loadClass);
     const { title, image, description, price, _id } = loadClass
     const { user } = useContext(AuthContext)
     const axiosSecure = useAxiosSecure()
