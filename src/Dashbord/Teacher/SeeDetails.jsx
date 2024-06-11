@@ -12,7 +12,7 @@ const SeeDetails = () => {
     const loadSeeDetails = useLoaderData()
     const axiosSecure = useAxiosSecure()
 
-    // console.log(loadSeeDetails)
+    console.log(loadSeeDetails)
 
     const { data: assignment = [], refetch } = useQuery({
         queryKey: 'assignment',
@@ -23,6 +23,17 @@ const SeeDetails = () => {
         }
 
     })
+
+    // const { data: enroll = [] } = useQuery({
+    //     queryKey: 'enroll',
+    //     queryFn: async () => {
+    //         const res = await axiosSecure.get('/allclass')
+    //         console.log(res.data)
+    //         return res.data
+    //     }
+    // })
+
+
     const handleAssignment = (e) => {
         e.preventDefault();
         const form = e.target;
@@ -31,8 +42,6 @@ const SeeDetails = () => {
         const description = form.description.value;
         const detail = { title: title, description: description, deadline: deadline }
         console.log(detail)
-
-
 
         axiosSecure.post('/assignmentcollection', detail)
             .then(res => {

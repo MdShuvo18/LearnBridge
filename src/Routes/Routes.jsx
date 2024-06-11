@@ -19,6 +19,7 @@ import Allclasses from "../Dashbord/Admin/Allclasses";
 import EnrollBtn from "../Pages/AllClasses/EnrollBtn";
 import Payment from "../Pages/AllClasses/Payment";
 import SeeDetails from "../Dashbord/Teacher/SeeDetails";
+import MyEnrollClassDetails from "../Dashbord/Student/MyEnrollClassDetails";
 
 
 
@@ -113,6 +114,11 @@ const router = createBrowserRouter([
             {
                 path: '/dashbord/studentprofile',
                 element: <StudentProfile></StudentProfile>
+            },
+            {
+                path:'/dashbord/myenrollclassdetails',
+                element:<MyEnrollClassDetails></MyEnrollClassDetails>,
+              
             }
            
            

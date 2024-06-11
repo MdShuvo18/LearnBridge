@@ -1,6 +1,8 @@
 import Banner from "./Banner";
 import BecomeTeacher from "./BecomeTeacherSection/BecomeTeacher";
 import ExtraOne from "./ExtraOne";
+import ExtraTwo from "./ExtraTwo";
+
 import Footer from "./Footer";
 import HighlightSection from "./HighlightSection/HighlightSection";
 import Navbar from "./Navbar";
@@ -15,6 +17,7 @@ const Home = () => {
             <div className="space-y-20">
                 <Banner></Banner>
                 <Partners></Partners>
+               <ExtraTwo></ExtraTwo>
                 <HighlightSection></HighlightSection>
                 <BecomeTeacher></BecomeTeacher>
                 <ExtraOne></ExtraOne>

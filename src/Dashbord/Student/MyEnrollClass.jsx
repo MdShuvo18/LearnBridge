@@ -3,6 +3,7 @@ import useAxiosSecure from "../../Hooks/useAxiosSecure";
 import { useContext } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
 
+
 const MyEnrollClass = () => {
     const axiosSecure = useAxiosSecure()
     const { user } = useContext(AuthContext)
@@ -15,9 +16,7 @@ const MyEnrollClass = () => {
         }
     })
 
-    const handleContinue =(item)=>{
-       console.log(item)
-    }
+
     return (
         <div className="grid grid-cols-2 gap-5 justify-items-center">
             {
@@ -27,7 +26,9 @@ const MyEnrollClass = () => {
                         <h2 className="card-title">{item.title}</h2>
                         <p className="text-lg font-semibold text-black">Posted by :{item.name}</p>
                         <div className="card-actions justify-end">
-                            <button onClick={()=>handleContinue(item)} className="btn btn-outline ">Continue</button>
+                            
+                                <button className="btn btn-outline ">Continue</button>
+                            
                         </div>
                     </div>
                 </div>)
