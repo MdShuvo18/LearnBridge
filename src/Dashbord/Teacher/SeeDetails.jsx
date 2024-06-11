@@ -24,6 +24,15 @@ const SeeDetails = () => {
 
     })
 
+    const{data:items=[]}=useQuery({
+        queryKey:'items',
+        queryFn:async()=>{
+            const res=await axiosSecure.get('/assignmentsubmitcollection')
+            console.log(res.data)
+            return res.data
+        }
+    })
+
     // const { data: enroll = [] } = useQuery({
     //     queryKey: 'enroll',
     //     queryFn: async () => {
@@ -72,7 +81,7 @@ const SeeDetails = () => {
                     <div className="card  bg-base-100 shadow-xl">
                         <div className="p-5">
                             <h2 className="card-title">Total Enrollment</h2>
-                            <p className="text-lg font-bold text-center">0</p>
+                            <p className="text-lg font-bold text-center">9</p>
                         </div>
                     </div>
                     <div className="card bg-base-100 shadow-xl">
@@ -84,7 +93,7 @@ const SeeDetails = () => {
                     <div className="card bg-base-100 shadow-xl">
                         <div className="p-5">
                             <h2 className="card-title">Per day assignment submitted</h2>
-                            <p className="text-lg font-bold text-center">0</p>
+                            <p className="text-lg font-bold text-center">{items.length}</p>
                         </div>
                     </div>
                 </div>

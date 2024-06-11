@@ -27,7 +27,7 @@ const MyEnrollClass = () => {
                         <h2 className="card-title">{item.title}</h2>
                         <p className="text-lg font-semibold text-black">Posted by :{item.name}</p>
                         <div className="card-actions justify-end">
-                           <Link to={`/dashbord/myenrollclassdetails/${item._id}`}>
+                           <Link to={`/dashbord/myenrollclassdetails/${item.title}`}>
                            <button className="btn btn-outline ">Continue</button>
                            </Link>
                         </div>

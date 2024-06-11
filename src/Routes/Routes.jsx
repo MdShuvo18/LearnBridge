@@ -116,9 +116,9 @@ const router = createBrowserRouter([
                 element: <StudentProfile></StudentProfile>
             },
             {
-                path:'/dashbord/myenrollclassdetails/:id',
+                path:'/dashbord/myenrollclassdetails/:title',
                 element:<MyEnrollClassDetails></MyEnrollClassDetails>,
-                loader:({params})=>fetch(`http://localhost:5000/payment/${params.id}`)
+                loader:({params})=>fetch(`http://localhost:5000/assignmentcollection/${params.title}`)
               
             }
            

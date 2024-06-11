@@ -7,6 +7,7 @@ import Footer from "./Footer";
 import HighlightSection from "./HighlightSection/HighlightSection";
 import Navbar from "./Navbar";
 import Partners from "./Partner/Partners";
+import TotalSection from "./TotalSection";
 
 
 
@@ -17,7 +18,8 @@ const Home = () => {
             <div className="space-y-20">
                 <Banner></Banner>
                 <Partners></Partners>
-               <ExtraTwo></ExtraTwo>
+                <ExtraTwo></ExtraTwo>
+                <TotalSection></TotalSection>
                 <HighlightSection></HighlightSection>
                 <BecomeTeacher></BecomeTeacher>
                 <ExtraOne></ExtraOne>
