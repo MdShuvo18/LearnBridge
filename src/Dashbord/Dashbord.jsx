@@ -22,24 +22,26 @@ const Dashbord = () => {
                     {
                         isAdmin ? <>
                             <li>
-                                <NavLink to="/">
-                                    <FaHome></FaHome>
-                                    Home</NavLink>
-                                <NavLink to="/dashbord/teacherrequest">
-                                    <FaRegQuestionCircle></FaRegQuestionCircle>
-                                    Teacher Request</NavLink>
-                                <NavLink to="/dashbord/users">
-                                    <FaUser></FaUser>
-                                    Users</NavLink>
-                                <NavLink to="/">
-                                    <SiGoogleclassroom />
-                                    All classes</NavLink>
-                                {/* <NavLink to="/dashbord/myenrollclass">
+                                <li>
+                                    <NavLink to="/">
+                                        <FaHome></FaHome>
+                                        Home</NavLink>
+                                    <NavLink to="/dashbord/teacherrequest">
+                                        <FaRegQuestionCircle></FaRegQuestionCircle>
+                                        Teacher Request</NavLink>
+                                    <NavLink to="/dashbord/users">
+                                        <FaUser></FaUser>
+                                        Users</NavLink>
+                                    <NavLink to="/dashbord/allclasses">
+                                        <SiGoogleclassroom />
+                                        All classes</NavLink>
+                                    {/* <NavLink to="/dashbord/myenrollclass">
                             <SiGoogleclassroom />
                             My enroll class</NavLink> */}
-                                <NavLink to="/dashbord/myprofile">
-                                    <CgProfile />
-                                    Profile</NavLink>
+                                    <NavLink to="/dashbord/myprofile">
+                                        <CgProfile />
+                                        Profile</NavLink>
+                                </li>
                             </li>
                         </>
                             : (isTeacher
@@ -51,14 +53,25 @@ const Dashbord = () => {
                                     <NavLink className='flex justify-items-center gap-2' to="/dashbord/myclass">
                                         <SiGoogleclassroom />
                                         My class</NavLink>
-                                    <NavLink className='flex justify-items-center gap-2' to="/">
+                                    <NavLink className='flex justify-items-center gap-2' to="/dashbord/myprofile">
                                         <CgProfile />
                                         Profile</NavLink>
+                                    <NavLink className='flex justify-items-center gap-2' to="/">
+                                        <FaHome></FaHome>
+                                        Home</NavLink>
                                 </div>
                                 :
-                                <NavLink to="/">
-                                    <FaHome></FaHome>
-                                    Home</NavLink>)
+                                <div>
+                                    <NavLink className='flex justify-items-center gap-2' to="/dashbord/myenrollclass">
+                                        <FaHome></FaHome>
+                                        My Enroll Class</NavLink>
+                                    <NavLink className='flex justify-items-center gap-2' to="/dashbord/myprofile">
+                                        <CgProfile />
+                                        Profile</NavLink>
+                                    <NavLink className='flex justify-items-center gap-2' to="/">
+                                        <FaHome></FaHome>
+                                        Home</NavLink>
+                                </div>)
 
                     }
                 </ul>
@@ -102,7 +115,7 @@ const Dashbord = () => {
                                             <CgProfile />
                                             Profile</NavLink>
                                         <NavLink className='flex justify-items-center gap-2' to="/">
-                                           <FaHome></FaHome>
+                                            <FaHome></FaHome>
                                             Home</NavLink>
                                     </div>
                                     :
@@ -113,8 +126,8 @@ const Dashbord = () => {
                                         <NavLink className='flex justify-items-center gap-2' to="/dashbord/myprofile">
                                             <CgProfile />
                                             Profile</NavLink>
-                                            <NavLink className='flex justify-items-center gap-2' to="/">
-                                           <FaHome></FaHome>
+                                        <NavLink className='flex justify-items-center gap-2' to="/">
+                                            <FaHome></FaHome>
                                             Home</NavLink>
                                     </div>)
 
