@@ -26,7 +26,11 @@ npm install
 npm start
 
 ## Technology used in this projects
-JavaScript , React, Tailwind, Node.js, Mongodb
+# JavaScript 
+# React
+# Tailwind
+# Node.js
+# Mongodb
 
 # LearnBridge
 
