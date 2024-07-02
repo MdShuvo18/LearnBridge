@@ -1,5 +1,4 @@
 # How clone the code and run locally
-
 ## Prerequisites
 Before you begin, ensure you have met the following requirements:
 - **Git**: Install from [here](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git).
@@ -26,6 +25,8 @@ npm install
 ## Running the Project
 npm start
 
+## Technology used in this projects
+JavaScript , React, Tailwind, Node.js, Mongodb
 
 # LearnBridge
 
