@@ -24,7 +24,6 @@ Replace project-directory with the name of your project folder.
 npm install
 
 ## Running the Project
-To run the project, use the following command:
 npm start
 
 
