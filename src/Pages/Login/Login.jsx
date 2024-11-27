@@ -4,6 +4,7 @@ import { IoMdEyeOff } from "react-icons/io";
 import { IoEye } from "react-icons/io5";
 import { AuthContext } from "../../Provider/AuthProvider";
 import { Link, useLocation, useNavigate } from "react-router-dom";
+import toast, { Toaster } from "react-hot-toast";
 
 
 const Login = () => {
@@ -41,8 +42,8 @@ const Login = () => {
 
         signIn(email, password)
             .then(result => {
-                console.log(result.user)
-
+                toast.success("login success")
+                console.log(result.user)               
                 navigate(from, { replace: true });
                 setSuccess('Login Successful')
             })
@@ -103,9 +104,9 @@ const Login = () => {
                     </div>
 
                 </div>
-
+                <Toaster position="top-right" autoClose="2000"></Toaster>
             </div>
-
+           
         </div>
     );
 };

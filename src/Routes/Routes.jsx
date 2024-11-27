@@ -46,7 +46,7 @@ const router = createBrowserRouter([
             {
                 path: '/enroll/:id',
                 element:<PrivateRoutes> <EnrollBtn></EnrollBtn></PrivateRoutes>,
-                loader: () => fetch(`http://localhost:5000/allclass`)
+                loader: () => fetch('https://learn-bridge-server.vercel.app/allclass')
             },
             {
                 path: '/teachesOnLearnBridge',
@@ -98,12 +98,12 @@ const router = createBrowserRouter([
             {
                 path:'/dashbord/seedetails/:id',
                 element:<SeeDetails></SeeDetails>,
-                loader:({params})=>fetch(`http://localhost:5000/addteachersclass/${params.id}`)
+                loader:({params})=>fetch(`https://learn-bridge-server.vercel.app/addteachersclass/${params.id}`)
             },
             {
                 path: '/dashbord/updateclass/:id',
                 element: <UpdateClass></UpdateClass>,
-                loader: ({ params }) => fetch(`http://localhost:5000/addteachersclass/${params.id}`)
+                loader: ({ params }) => fetch(`https://learn-bridge-server.vercel.app/addteachersclass/${params.id}`)
 
             },
             // student related routes
@@ -118,7 +118,7 @@ const router = createBrowserRouter([
             {
                 path:'/dashbord/myenrollclassdetails/:title',
                 element:<MyEnrollClassDetails></MyEnrollClassDetails>,
-                loader:({params})=>fetch(`http://localhost:5000/assignmentcollection/${params.title}`)
+                loader:({params})=>fetch(`https://learn-bridge-server.vercel.app/assignmentcollection/${params.title}`)
               
             }
            

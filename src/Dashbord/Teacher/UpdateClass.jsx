@@ -25,7 +25,7 @@ const UpdateClass = () => {
         const addClassItem = { title: title, image: image, price: price, description: description, name: name, email: email }
         // console.log(addClassItem)
         // console.log('ok')
-        axiosSecure.put(`http://localhost:5000/addteachersclass/${_id}`, addClassItem)
+        axiosSecure.put(`https://learn-bridge-server.vercel.app/addteachersclass/${_id}`, addClassItem)
             .then(res => {
                 // console.log(res.data)
                 if (res.data.modifiedCount > 0) {

@@ -8,12 +8,19 @@ import useAxiosPublic from "../../Hooks/useAxiosPublic";
 const MyEnrollClassDetails = () => {
     const axiosSecure = useAxiosSecure()
     const loaderData = useLoaderData();
-    const axiosPublic=useAxiosPublic()
+    const axiosPublic = useAxiosPublic()
     // console.log(loaderData)
     const handleSubmit = async (item) => {
-        console.log(item)
-        const res = await axiosSecure.post('/assignmentsubmitcollection', item)
-        // console.log(res.data)
+        // console.log(item)
+        const assignment = {
+            title: item.title,
+            description: item.description,
+            deadline: item.deadline,
+            itemId: item._id
+
+        }
+        const res = await axiosSecure.post('/assignmentsubmitcollection', assignment)
+        console.log(res.data)
         if (res.data.insertedId) {
             Swal.fire({
                 position: "center",
@@ -26,23 +33,23 @@ const MyEnrollClassDetails = () => {
 
     }
 
-    const handleTer=async(e)=>{
-      e.preventDefault();
-      const form=e.target;
-      const description=form.description.value;
-      const rating=form.rating.value;
-      const item={description,rating}
-      console.log(item)
-      const res=await axiosPublic.post('/terCollection',item)
-      if (res.data.insertedId) {
-        Swal.fire({
-            position: "center",
-            icon: "success",
-            title: "Submitted",
-            showConfirmButton: false,
-            timer: 1500
-        })
-    }
+    const handleTer = async (e) => {
+        e.preventDefault();
+          const form=e.target;
+          const description=form.description.value;
+          const rating=form.rating.value;
+          const item={description,rating}
+          console.log(item)
+          const res=await axiosPublic.post('/terCollection',item)
+          if (res.data.insertedId) {
+            Swal.fire({
+                position: "top-right",
+                icon: "success",
+                title: "Submitted",
+                showConfirmButton: false,
+                timer: 1500
+            })
+        }
     }
 
     return (
